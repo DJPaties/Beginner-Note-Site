@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Note</title>
+</head>
+<body>
+{%block button%}
+    <h1>Note Title:{{notetitle.note_text}}</h1>
+    <h1 style="color:red;">Note id: {{notetitle.id}}</h1>
+    <div>
+        <h1 style="font-size=220">Note Description</h1>
+        <ul>
+
+            {% for note in notetitle.notedetails_set.all%}
+            <li style="font-size:175%;">{{note.details_text}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+    <a href="{%url 'main:home'%}" style="color:blue; font-size:150%;">Go Home</a><br>
+{%endblock%}
+</body>
+</html>

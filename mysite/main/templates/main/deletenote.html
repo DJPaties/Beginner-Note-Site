@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Note</title>
+</head>
+<body>
+    <div>
+        <form method="post">
+            {%csrf_token%}
+
+            <h1>To delete notes</h1>
+            <p style="font-size:150%;">This is the delete page where you delete notes according to their ids. The ids are the number that are listed beside the note titles.</p>
+            <p style="font-size:150%;">This method is used to avoid any sort od mistake in deleting notes. Refer to customer service on the <a href="{%url 'main:home'%}">home page</a> for feedback</p>
+            {%if errormessage %}<p><strong>{{errormessage}}</strong></p>{%endif%}
+            <span style="font-size:150%;">Enter id to delete note:</span><input type="text" name="noteid" style="font-size=150%;"><br>
+            <br>
+            <span style="font-size:150%;">Be sure before deleting:</span> <input type="submit" name="deletenote" value="Delete" style="width:75px; height:35px;">
+        </form>
+    </div>
+
+    <div >
+        <h1 >Note ids</h1>
+        <ul >
+            {%for note in notetitle%}
+            <li style="font-size:150%;">{{note.note_text}} with id <span style="color:red;">{{note.id}}</span></li>
+            {%endfor%}
+        </ul>
+
+    </div>
+
+
+</body>
+</html>

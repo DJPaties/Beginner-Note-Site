@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style></style>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+</head>
+<body>
+    <div>
+        {% if notetitle %}
+        <ul>
+            {%for notes in notetitle%}
+            <li style="font-size:150%;"><a href="{% url 'main:detailnote' notes.id%}">{{notes.note_text}}</a></li>
+            {%endfor%}
+        </ul>
+        {%else%}
+            <p style="font-size:300%">There are no notes created yet</p>
+        {%endif%}
+    </div>>
+
+    <p style="font-size:150%;"><strong> Wanna <a href="{%url 'main:deletenote'%}"> delete</a> some notes? Or head to <a href="{%url 'main:home'%}">Home Page</a></strong></p>
+</body>
+</html>

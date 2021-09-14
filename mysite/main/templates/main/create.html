@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Note</title>
+</head>
+<body>
+    <form action="{% url 'main:create'%}" method="post">
+        {%csrf_token%}
+
+        <fieldset>
+            <legend>Create Note</legend>
+            {%if errormessage%}<p><strong>{{errormessage}}</strong></p>{%endif%}
+            Note Subject: <input type="text" name="notesubject"><br>
+            <br>
+            note description : <textarea name="notedescription" col="200" rows="5" ></textarea><br>
+            <br>
+            When Done: <input type="submit" name="create" value="Create">
+
+
+        </fieldset>
+
+    </form>
+</body>
+</html>
